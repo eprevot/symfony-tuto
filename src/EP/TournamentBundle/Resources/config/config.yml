@@ -1,0 +1,3 @@
+ep_tournament:
+	default_cost: 20
+	default_surface: quick

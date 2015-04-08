@@ -1,3 +1,7 @@
+ep_tournament:
+    resource: "@EPTournamentBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
