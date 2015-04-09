@@ -1,3 +1,3 @@
 ep_tournament_homepage:
-    path:     /hello/{name}
+    path:     /tournament/{name}
     defaults: { _controller: EPTournamentBundle:Default:index }
