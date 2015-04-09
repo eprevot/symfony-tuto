@@ -43,12 +43,27 @@ class Club
     private $city;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="zipcode", type="integer")
+     */
+    private $zipcode;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="fft_id", type="string", length=255)
      */
     private $fftId;
 
+    /**
+     * True if club is in Paris
+     * @return boolean
+     */
+    public function isParis()
+    {
+        return preg_match('/^75[0-9]{3}/', $this->getZipcode()) === 1;
+    }
 
     /**
      * Get id
@@ -150,5 +165,28 @@ class Club
     public function getFftId()
     {
         return $this->fftId;
+    }
+
+    /**
+     * Set zipcode
+     *
+     * @param integer $zipcode
+     * @return Club
+     */
+    public function setZipcode($zipcode)
+    {
+        $this->zipcode = $zipcode;
+
+        return $this;
+    }
+
+    /**
+     * Get zipcode
+     *
+     * @return integer 
+     */
+    public function getZipcode()
+    {
+        return $this->zipcode;
     }
 }
