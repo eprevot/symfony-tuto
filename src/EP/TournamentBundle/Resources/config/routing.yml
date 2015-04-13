@@ -1,3 +1,15 @@
 ep_tournament_homepage:
     path:     /tournament/{name}
     defaults: { _controller: EPTournamentBundle:Default:index }
+
+ep_club_add:
+    path:         /club/{name}
+    defaults:     {_controller: EPTournamentBundle:Club:add }
+    requirements:
+        _method:  POST
+
+ep_club_show:
+    path:         /club/{id}
+    defaults:     {_controller: EPTournamentBundle:Club:show }
+    requirements:
+        _method:  GET
