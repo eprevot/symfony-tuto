@@ -12,4 +12,15 @@ use Doctrine\ORM\EntityRepository;
  */
 class ClubRepository extends EntityRepository
 {
+    public function findParisians()
+    {
+        $queryBuilder = $this->createQueryBuilder('c')
+                        ->where('c.zipcode <= 75999')
+                        ->andWhere('c.zipcode >= 75000');
+        
+        $query = $queryBuilder->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+    }
 }
