@@ -21,7 +21,6 @@ class ClubControllerTest extends WebTestCase
             'EP\TournamentBundle\DataFixtures\ORM\LoadClubData',
         );
         $this->loadFixtures($classes);
-        error_log("setup");
     }
 
     public function testShowOK()

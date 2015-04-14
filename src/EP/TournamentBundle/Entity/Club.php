@@ -52,7 +52,7 @@ class Club
     /**
      * @var string
      *
-     * @ORM\Column(name="fft_id", type="string", length=255)
+     * @ORM\Column(name="fft_id", type="string", length=255, unique=true)
      */
     private $fftId;
 
