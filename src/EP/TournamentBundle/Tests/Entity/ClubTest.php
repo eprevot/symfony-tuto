@@ -1,6 +1,4 @@
 <?php
-// src/EP/TournamentBundle/Tests/Entity/ClubTest.php
-
 namespace EP\TournamentBundle\Tests\Entity;
 
 use EP\TournamentBundle\Entity\Club;

@@ -9,10 +9,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ClubController extends Controller
 {
-    public function addAction($name)
+    public function addAction()
     {
         $club = new Club();
-        $club->setName($name);
+        $club->setName($this->getQueryString('name'));
         $club->setAddress($this->getQueryString('address'));
         $club->setZipcode($this->getQueryString('zipcode'));
         $club->setCity($this->getQueryString('city'));

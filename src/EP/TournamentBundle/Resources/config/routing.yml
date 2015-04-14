@@ -3,7 +3,7 @@ ep_tournament_homepage:
     defaults: { _controller: EPTournamentBundle:Default:index }
 
 ep_club_add:
-    path:         /club/{name}
+    path:         /club
     defaults:     {_controller: EPTournamentBundle:Club:add }
     requirements:
         _method:  POST
