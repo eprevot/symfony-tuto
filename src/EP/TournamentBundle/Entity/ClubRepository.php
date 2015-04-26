@@ -23,4 +23,11 @@ class ClubRepository extends EntityRepository
 
         return $results;
     }
+
+    public function findTournaments($club)
+    {
+		$tournaments = $this->getEntityManager()->getRepository('EPTournamentBundle:Tournament')->findBy(array('club' => $club));
+		return $tournaments;
+    }
+
 }

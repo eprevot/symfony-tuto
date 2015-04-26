@@ -1,11 +1,12 @@
 <?php
 namespace EP\TournamentBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use EP\TournamentBundle\Entity\Club;
 
-class LoadClubData implements FixtureInterface
+class LoadClubData extends AbstractFixture implements OrderedFixtureInterface
 {
     /**
      * {@inheritDoc}
@@ -46,5 +47,14 @@ class LoadClubData implements FixtureInterface
         $manager->persist($club4);
 
         $manager->flush();
+
+        $this->addReference('club1', $club);
+
     }
+
+    public function getOrder()
+    {
+        return 1; // the order in which fixtures will be loaded
+    }
+
 }

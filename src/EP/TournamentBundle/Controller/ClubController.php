@@ -25,16 +25,18 @@ class ClubController extends Controller
         return $this->render('EPTournamentBundle:Club:show.html.twig', array('club' => $club));
     }
 
+
     public function showAction($id)
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('EPTournamentBundle:Club');
         $club = $repo->find($id);
+        $tournaments = $repo->findTournaments($club);
 
         if($club === null) {
             throw new NotFoundHttpException("there is no club for id ".$id);
         }
 
-        return $this->render('EPTournamentBundle:Club:show.html.twig', array('club' => $club));
+        return $this->render('EPTournamentBundle:Club:show.html.twig', array('club' => $club, 'tournaments' => $tournaments));
     }
 
     private function getQueryString($param)

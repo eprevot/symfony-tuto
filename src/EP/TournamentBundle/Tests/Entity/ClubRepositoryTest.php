@@ -25,10 +25,22 @@ class ClubRepositoryTest extends WebTestCase
         $this->assertEquals('TC12', $clubs[1]->getName());
     }
 
+    public function testGetTournaments()
+    {
+        $repo = $this->getEntityManager()->getRepository('EPTournamentBundle:Club');
+        $club = $repo->findById(1);
+        $tournaments = $repo->findTournaments($club);
+
+        $this->assertEquals(2, count($tournaments));
+        $this->assertEquals('Mister Anderson', $tournaments[0]->getJa());
+        $this->assertEquals('Agent Smith', $tournaments[1]->getJa());
+    }
+
     private function loadTestData()
     {
         $classes = array(
             'EP\TournamentBundle\DataFixtures\ORM\LoadClubData',
+            'EP\TournamentBundle\DataFixtures\ORM\LoadTournamentData',
         );
         $this->loadFixtures($classes);
     }
