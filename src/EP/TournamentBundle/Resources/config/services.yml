@@ -2,3 +2,7 @@ services:
 #    ep_tournament.example:
 #        class: EP\TournamentBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    ep_tournament.twig.tournament_extension:
+        class: EP\TournamentBundle\Twig\TournamentExtension
+        tags:
+            - { name: twig.extension }

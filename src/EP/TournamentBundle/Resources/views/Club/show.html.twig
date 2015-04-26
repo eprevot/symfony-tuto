@@ -6,7 +6,7 @@
     <p>internal id : {{club.id}}</p>
     <h3>Tournaments</h3>
     <ul>
-    	{% for tournament in tournaments %}
+    	{% for tournament in tournaments|sortByStartDate %}
     	<li>Du {{tournament.startDate|date("d/m/Y")}} au {{tournament.endDate|date("d/m/Y")}} avec {{tournament.ja}}</li>
     	{% endfor %}
     </ul>
